@@ -11,6 +11,48 @@
 
 static volatile sig_atomic_t terminate;
 
+static struct net_device *dev;
+
+struct net_device *dummy_init(void)
+{
+    struct net_device *dev;
+
+    // # 1 #####################################
+    dev = net_device_alloc();
+    if (!dev) {
+        errorf("net_device_alloc() failure");
+        return NULL;
+    }
+
+    dev->type = NET_DEVICE_TYPE_DUMMY;
+    dev->mtu = 128;
+    dev->hlen = 0;
+    dev->alen = 0;
+    if (net_device_register(dev) == -1) {
+        errorf("net_device_register() failure");
+        return NULL;
+    }
+
+    // # 2 #####################################
+    dev = net_device_alloc();
+    if (!dev) {
+        errorf("net_device_alloc() failure");
+        return NULL;
+    }
+
+    dev->type = NET_DEVICE_TYPE_DUMMY;
+    dev->mtu = 64;
+    dev->hlen = 0;
+    dev->alen = 0;
+    if (net_device_register(dev) == -1) {
+        errorf("net_device_register() failure");
+        return NULL;
+    }
+
+    infof("success, dev=%s", dev->name);
+    return dev;
+}
+
 static void on_signal(int signum)
 {
     (void)signum;
@@ -34,6 +76,13 @@ static int setup(void)
         errorf("net_init() failure");
         return -1;
     }
+
+    dev = dummy_init();
+    if (!dev) {
+        errorf("dummy_init() failure");
+        return -1;
+    }
+
     // プロトコルスタックの起動
     if (net_run() == -1) {
         errorf("net_run() failure");
@@ -54,8 +103,16 @@ static int cleanup(void)
 
 static int app_main(void)
 {
+    struct net_device *working_dev;
+
     debugf("press Ctrl+C to terminate");
     while (!terminate) {
+        for (working_dev = dev; working_dev; working_dev = working_dev->next) {
+            if (net_device_output(working_dev, 0x0800, test_data, sizeof(test_data), NULL) == -1) {
+                errorf("net_device_output() failure");
+                break;
+            }
+        }
         sleep(1);
     }
     debugf("terminate");
