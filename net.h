@@ -24,17 +24,31 @@
 #define NET_DEVICE_IS_UP(x) ((x)->flags & NET_DEVICE_FLAG_UP)
 #define NET_DEVICE_STATE(x) (NET_DEVICE_IS_UP(x) ? "UP" : "DOWN")
 
+// ネットワークデバイス構造体
 struct net_device {
     struct net_device *next;    // 次のネットワークデバイス。終端はNULL
     unsigned int index;         // ネットワークデバイスのID
     char name[IFNAMSIZ];        // 名称
     uint16_t type;              // 種類(NET_DEVICE_TYPE_*)
     uint16_t mtu;               // MTU(Maximum Transfer Unit): 一度に送信できるデータサイズ
-    uint16_t flags;             // 特性と状態(NET_DEVICE_FLAG_)
+    uint16_t flags;             // 特性と状態(NET_DEVICE_FLAG_*)
     uint16_t hlen;              // ヘッダ長
     uint16_t alen;              // アドレス長
     uint8_t addr[NET_DEVICE_ADDR_LEN];      // ネットワークデバイスのアドレス
     uint8_t broadcast[NET_DEVICE_ADDR_LEN]; // データリンクのブロードキャストアドレス
+    struct net_device_ops *ops; // 制御ルーチンのアドレス構造体
+    void *priv;                 // 任意のデータを指すポインタ
+};
+
+// デバイスドライバのインタフェース
+//   デバイスドライバに実装されている制御ルーチンのアドレスを格納
+struct net_device_ops {
+    // ネットワークデバイスを起動する
+    int (*open)(struct net_device *dev);
+    // ネットワークデバイスを停止する
+    int (*close)(struct net_device *dev);
+    // ネットワークデバイスにデータを出力する
+    int (*output)(struct net_device *dev, uint16_t type, const uint8_t *data, size_t len, const void *dst);
 };
 
 // ネットワークデバイスのオブジェクトを割り当て
@@ -44,6 +58,8 @@ extern int net_device_register(struct net_device *dev);
 // ネットワークデバイスからデータを送信
 extern int net_device_output(struct net_device *dev, uint16_t type, const uint8_t *data, size_t len, const void *dst);
 
+// デバイスドライバからプロトコルスタックへ入力パケットを渡す
+extern int net_input(uint16_t type, const uint8_t *data, size_t len, struct net_device *dev);
 // プロトコルスタックの初期化
 extern int net_init(void);
 // プロトコルスタックの起動

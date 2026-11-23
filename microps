@@ -1,0 +1,37 @@
+<mxfile host="65bd71144e">
+    <diagram id="k9GESRZA1GtNxpeYLC6B" name="ページ-1">
+        <mxGraphModel dx="1131" dy="1960" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="GTHV1a8Gs4AIWMatnGZH-5" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;align=left;verticalAlign=top;" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;デバイス：loopback&lt;/span&gt;&lt;div style=&quot;color: rgb(63, 63, 63); scrollbar-color: rgba(168, 169, 170, 0.52) rgb(18, 19, 20);&quot;&gt;net_device&lt;/div&gt;" vertex="1">
+                    <mxGeometry height="290" width="400" x="110" y="260" as="geometry"/>
+                </mxCell>
+                <mxCell id="GTHV1a8Gs4AIWMatnGZH-1" parent="1" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" value="net_device_output" vertex="1">
+                    <mxGeometry height="60" width="160" x="200" y="320" as="geometry"/>
+                </mxCell>
+                <mxCell id="GTHV1a8Gs4AIWMatnGZH-3" edge="1" parent="1" source="GTHV1a8Gs4AIWMatnGZH-1" style="endArrow=classic;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" target="GTHV1a8Gs4AIWMatnGZH-4" value="">
+                    <mxGeometry height="50" relative="1" width="50" as="geometry">
+                        <mxPoint x="250" y="430" as="sourcePoint"/>
+                        <mxPoint x="240" y="230" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="GTHV1a8Gs4AIWMatnGZH-8" edge="1" parent="1" source="GTHV1a8Gs4AIWMatnGZH-4" style="edgeStyle=none;html=1;exitX=0.75;exitY=0;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;" target="GTHV1a8Gs4AIWMatnGZH-1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="GTHV1a8Gs4AIWMatnGZH-4" parent="1" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" value="loopback_output" vertex="1">
+                    <mxGeometry height="60" width="160" x="200" y="440" as="geometry"/>
+                </mxCell>
+                <mxCell id="GTHV1a8Gs4AIWMatnGZH-7" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;align=left;verticalAlign=top;" value="プロトコルスタック" vertex="1">
+                    <mxGeometry height="170" width="400" x="110" y="-60" as="geometry"/>
+                </mxCell>
+                <mxCell id="GTHV1a8Gs4AIWMatnGZH-10" edge="1" parent="1" source="GTHV1a8Gs4AIWMatnGZH-1" style="edgeStyle=none;html=1;exitX=0.75;exitY=0;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;" target="GTHV1a8Gs4AIWMatnGZH-9">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="GTHV1a8Gs4AIWMatnGZH-9" parent="1" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" value="net_input" vertex="1">
+                    <mxGeometry height="60" width="160" x="200" y="20" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
