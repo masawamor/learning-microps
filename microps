@@ -1,14 +1,17 @@
 <mxfile host="65bd71144e">
     <diagram id="k9GESRZA1GtNxpeYLC6B" name="ページ-1">
-        <mxGraphModel dx="1131" dy="1960" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
-                <mxCell id="GTHV1a8Gs4AIWMatnGZH-5" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;align=left;verticalAlign=top;" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;デバイス：loopback&lt;/span&gt;&lt;div style=&quot;color: rgb(63, 63, 63); scrollbar-color: rgba(168, 169, 170, 0.52) rgb(18, 19, 20);&quot;&gt;net_device&lt;/div&gt;" vertex="1">
-                    <mxGeometry height="290" width="400" x="110" y="260" as="geometry"/>
+                <mxCell id="GTHV1a8Gs4AIWMatnGZH-7" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;align=left;verticalAlign=top;" value="プロトコルスタック" vertex="1">
+                    <mxGeometry height="390" width="400" x="120" y="-300" as="geometry"/>
+                </mxCell>
+                <mxCell id="GTHV1a8Gs4AIWMatnGZH-5" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;align=left;verticalAlign=top;" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;デバイス&lt;/span&gt;&lt;div style=&quot;color: rgb(63, 63, 63); scrollbar-color: rgba(168, 169, 170, 0.52) rgb(18, 19, 20);&quot;&gt;net_device&lt;/div&gt;" vertex="1">
+                    <mxGeometry height="120" width="400" x="120" y="280" as="geometry"/>
                 </mxCell>
                 <mxCell id="GTHV1a8Gs4AIWMatnGZH-1" parent="1" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" value="net_device_output" vertex="1">
-                    <mxGeometry height="60" width="160" x="200" y="320" as="geometry"/>
+                    <mxGeometry height="60" width="160" x="240" y="310" as="geometry"/>
                 </mxCell>
                 <mxCell id="GTHV1a8Gs4AIWMatnGZH-3" edge="1" parent="1" source="GTHV1a8Gs4AIWMatnGZH-1" style="endArrow=classic;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" target="GTHV1a8Gs4AIWMatnGZH-4" value="">
                     <mxGeometry height="50" relative="1" width="50" as="geometry">
@@ -20,16 +23,45 @@
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="GTHV1a8Gs4AIWMatnGZH-4" parent="1" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" value="loopback_output" vertex="1">
-                    <mxGeometry height="60" width="160" x="200" y="440" as="geometry"/>
-                </mxCell>
-                <mxCell id="GTHV1a8Gs4AIWMatnGZH-7" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;align=left;verticalAlign=top;" value="プロトコルスタック" vertex="1">
-                    <mxGeometry height="170" width="400" x="110" y="-60" as="geometry"/>
+                    <mxGeometry height="60" width="160" x="240" y="430" as="geometry"/>
                 </mxCell>
                 <mxCell id="GTHV1a8Gs4AIWMatnGZH-10" edge="1" parent="1" source="GTHV1a8Gs4AIWMatnGZH-1" style="edgeStyle=none;html=1;exitX=0.75;exitY=0;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;" target="GTHV1a8Gs4AIWMatnGZH-9">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="GTHV1a8Gs4AIWMatnGZH-9" parent="1" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" value="net_input" vertex="1">
-                    <mxGeometry height="60" width="160" x="200" y="20" as="geometry"/>
+                    <mxGeometry height="60" width="160" x="240" as="geometry"/>
+                </mxCell>
+                <mxCell id="3Mm3iHuet--Xf7S4lxm--1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;align=left;verticalAlign=top;" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;ループバック&lt;/span&gt;&lt;div style=&quot;color: rgb(63, 63, 63); scrollbar-color: rgba(168, 169, 170, 0.52) rgb(18, 19, 20);&quot;&gt;net_device&lt;/div&gt;" vertex="1">
+                    <mxGeometry height="120" width="400" x="120" y="400" as="geometry"/>
+                </mxCell>
+                <mxCell id="3Mm3iHuet--Xf7S4lxm--2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;align=left;verticalAlign=top;" value="net_device *devices" vertex="1">
+                    <mxGeometry height="100" width="320" x="160" y="-30" as="geometry"/>
+                </mxCell>
+                <mxCell id="3Mm3iHuet--Xf7S4lxm--3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;align=left;verticalAlign=top;" value="net_protocol *protocols" vertex="1">
+                    <mxGeometry height="100" width="320" x="160" y="-260" as="geometry"/>
+                </mxCell>
+                <mxCell id="3Mm3iHuet--Xf7S4lxm--4" parent="1" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" value="net_protocol_handler_t" vertex="1">
+                    <mxGeometry height="60" width="160" x="240" y="-230" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+    <diagram id="qazsxHpBtlt4jns4bT0e" name="ページ-2">
+        <mxGraphModel dx="750" dy="791" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="4z-1sLebdpHT50Q9EFCi-0"/>
+                <mxCell id="4z-1sLebdpHT50Q9EFCi-1" parent="4z-1sLebdpHT50Q9EFCi-0"/>
+                <mxCell id="-sQ0zECUVD-2r_cNGjPv-2" parent="4z-1sLebdpHT50Q9EFCi-1" style="rounded=1;whiteSpace=wrap;html=1;roundedPerimeter=1;" value="net_init&lt;div&gt;プロトコルスタック起動&lt;/div&gt;" vertex="1">
+                    <mxGeometry height="60" width="240" x="120" y="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="-sQ0zECUVD-2r_cNGjPv-3" parent="4z-1sLebdpHT50Q9EFCi-1" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" value="ip_init&lt;div&gt;IPプロトコル初期化&lt;/div&gt;" vertex="1">
+                    <mxGeometry height="60" width="240" x="120" y="280" as="geometry"/>
+                </mxCell>
+                <mxCell id="-sQ0zECUVD-2r_cNGjPv-5" parent="4z-1sLebdpHT50Q9EFCi-1" style="rounded=1;whiteSpace=wrap;html=1;roundedPerimeter=1;" value="test.c" vertex="1">
+                    <mxGeometry height="60" width="240" x="450" y="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="-sQ0zECUVD-2r_cNGjPv-6" parent="4z-1sLebdpHT50Q9EFCi-1" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" value="loopback_init&lt;div&gt;ループバックデバイス初期化&lt;/div&gt;" vertex="1">
+                    <mxGeometry height="60" width="240" x="450" y="280" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>

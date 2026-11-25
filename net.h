@@ -24,6 +24,10 @@
 #define NET_DEVICE_IS_UP(x) ((x)->flags & NET_DEVICE_FLAG_UP)
 #define NET_DEVICE_STATE(x) (NET_DEVICE_IS_UP(x) ? "UP" : "DOWN")
 
+#define NET_PROTOCOL_TYPE_IP    0x0800
+#define NET_PROTOCOL_TYPE_ARP   0x0806
+#define NET_PROTOCOL_TYPE_IPV6  0x86dd
+
 // ネットワークデバイス構造体
 struct net_device {
     struct net_device *next;    // 次のネットワークデバイス。終端はNULL
@@ -51,6 +55,9 @@ struct net_device_ops {
     int (*output)(struct net_device *dev, uint16_t type, const uint8_t *data, size_t len, const void *dst);
 };
 
+// プロトコルのパケットを処理する入力ハンドラ
+typedef void (*net_protocol_handler_t)(const uint8_t *data, size_t len, struct net_device *dev);
+
 // ネットワークデバイスのオブジェクトを割り当て
 extern struct net_device *net_device_alloc(void);
 // ネットワークデバイスをプロトコルスタックに登録
@@ -58,6 +65,8 @@ extern int net_device_register(struct net_device *dev);
 // ネットワークデバイスからデータを送信
 extern int net_device_output(struct net_device *dev, uint16_t type, const uint8_t *data, size_t len, const void *dst);
 
+// プロトコルをプロトコルスタックに登録
+extern int net_protocol_register(uint16_t type, net_protocol_handler_t handler);
 // デバイスドライバからプロトコルスタックへ入力パケットを渡す
 extern int net_input(uint16_t type, const uint8_t *data, size_t len, struct net_device *dev);
 // プロトコルスタックの初期化

@@ -8,11 +8,11 @@
 #define LOOPBACK_MTU UINT16_MAX /* Maximum size of IP diagram */
 
 /**
- * dev:     ネットワークデバイス
- * type:    送信プロトコル種別
- * data:    送信パケットのバイト列
- * len:     送信パケットの長さ
- * dst:     データリンク上の宛先アドレス
+ * dev:  ネットワークデバイス
+ * type: 送信プロトコル種別
+ * data: 送信パケットのバイト列
+ * len:  送信パケットの長さ
+ * dst:  データリンク上の宛先アドレス
  */
 static int loopback_output(struct net_device *dev, uint16_t type, const uint8_t *data, size_t len, const void *dst)
 {

@@ -70,7 +70,7 @@ static int app_main(void)
     debugf("press Ctrl+C to terminate");
     while (!terminate) {
         for (working_dev = dev; working_dev; working_dev = working_dev->next) {
-            if (net_device_output(working_dev, 0x0800, test_data, sizeof(test_data), NULL) == -1) {
+            if (net_device_output(working_dev, NET_PROTOCOL_TYPE_IP, test_data, sizeof(test_data), NULL) == -1) {
                 errorf("net_device_output() failure");
                 break;
             }
